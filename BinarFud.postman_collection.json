@@ -1,0 +1,477 @@
+{
+	"info": {
+		"_postman_id": "7da44a03-f869-416f-a061-6e52f5cc8ca3",
+		"name": "BinarFud",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25962047"
+	},
+	"item": [
+		{
+			"name": "merchant",
+			"item": [
+				{
+					"name": "cek open merchants",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/merchants/openMerchants",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"openMerchants"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/merchants/listMerchants?page=1&size=5&merchant_name=ayam",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"listMerchants"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "merchant_name",
+									"value": "ayam"
+								},
+								{
+									"key": "merchant_location",
+									"value": "Bogor",
+									"disabled": true
+								},
+								{
+									"key": "orderby",
+									"value": "merchant",
+									"disabled": true
+								},
+								{
+									"key": "ordertype",
+									"value": "desc",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add merchant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"merchant_name\" : \"warung ayam bakar QQ\",\r\n    \"merchant_location\" : \"bogor\",\r\n    \"open\" : true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/merchants/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/merchants/updateStatus?id=1&isOpen=true",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"updateStatus"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								},
+								{
+									"key": "isOpen",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\" : 1,\r\n    \"merchant_name\" : \"warung ayam bakar WQ\",\r\n    \"merchant_location\" : \"Bogor\",\r\n    \"open\" : false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/merchants/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"merchant\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/merchants/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"merchants",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_name\": \"ayam bakar madu\",\r\n    \"price\": 20000\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/add?merchantId=4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"add"
+							],
+							"query": [
+								{
+									"key": "merchantId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cek available Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/availableProducts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"availableProducts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 11,\r\n    \"product_name\": \"mie ayam pedas\",\r\n    \"price\": 20000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/update?merchantId=4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"update"
+							],
+							"query": [
+								{
+									"key": "merchantId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/products/delete/11",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"delete",
+								"11"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders/createOrder",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"createOrder"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orders/getOrders",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orders",
+								"getOrders"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "order detail",
+			"item": [
+				{
+					"name": "add order detail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orderDetails/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orderDetails",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update order detail",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orderDetails/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orderDetails",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete order detail",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/orderDetails/delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"orderDetails",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/add",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/delete/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "testSP",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/v1/merchant/sp",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"merchant",
+						"sp"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
